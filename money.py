@@ -57,11 +57,11 @@ class Money:
        
 
     def __str__(self):
-        formated_amount = "{:.{}f}".format(self.amount, self.currency.digits)
+        
         if self.currency.symbol:
-            return f"{self.currency.symbol}{formated_amount}"
+            return f"{self.currency.symbol}{self.amount:.{self.currency.digits}f}"
         else:
-            return f"{self.currency.code} {formated_amount}"
+            return f"{self.currency.code} {self.amount:.{self.currency.digits}f}"
         """
         Should use the currency symbol if available, else use the code.
         Use the currency digits to determine number of digits to show.
